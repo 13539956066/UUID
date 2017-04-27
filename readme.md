@@ -181,22 +181,22 @@ client_a通过A获取了worker_id为1的租期，时间是从今天9点到10点�
 实际中不会有这么多机器同时去申请worker_id的情况发生,而且我们目前设置的worker_id_bits也只有8位,也就是说在同一个namespace中最多支持256台机器同时工作。所以这个测试只是用于说明选择策略这个问题。
 
 
-> [ INFO] 2017-04-26 19:09:03.287 [Client.java:99] =======================get intervals end=======================   
-> [ INFO] 2017-04-26 19:09:03.293 [Client.java:100] =======================  analysis begin =======================   
+> [ INFO] 2017-04-26 19:09:03.287 [Client.java:98] ==========get intervals end==========   
+> [ INFO] 2017-04-26 19:09:03.293 [Client.java:99] ==========  analysis begin ==========   
 > [ INFO] 2017-04-26 19:09:03.299 [Client.java:129] total get interval size=3582   
 > [ INFO] 2017-04-26 19:09:03.299 [Client.java:130] error interval size=0   
 
 
 成功率只有1/3左右  
 在将线程池大小调节到10的情况下,数据如下
->[ INFO] 2017-04-26 19:17:57.403 [Client.java:99] =======================get intervals end=======================   
->[ INFO] 2017-04-26 19:17:57.407 [Client.java:100] =======================  analysis begin =======================   
+>[ INFO] 2017-04-26 19:17:57.403 [Client.java:98] ==========get intervals end==========   
+>[ INFO] 2017-04-26 19:17:57.407 [Client.java:99] ==========  analysis begin ==========   
 >[ INFO] 2017-04-26 19:17:57.436 [Client.java:129] total get interval size=4831   
 >[ INFO] 2017-04-26 19:17:57.436 [Client.java:130] error interval size=0   
 
 使用随机策略后，成功率上升到95%
->[ INFO] 2017-04-26 19:53:42.019 [Client.java:99] =======================get intervals end=======================   
->[ INFO] 2017-04-26 19:53:42.023 [Client.java:100] =======================  analysis begin =======================   
+>[ INFO] 2017-04-26 19:53:42.019 [Client.java:98] ==========get intervals end==========   
+>[ INFO] 2017-04-26 19:53:42.023 [Client.java:99] ==========  analysis begin ==========   
 >[ INFO] 2017-04-26 19:53:42.030 [Client.java:129] total get interval size=9555   
 >[ INFO] 2017-04-26 19:53:42.030 [Client.java:130] error interval size=0   
 
@@ -214,8 +214,8 @@ client_a通过A获取了worker_id为1的租期，时间是从今天9点到10点�
 
 
 ### 参考文档
-snowflake <https://github.com/twitter/snowflake>
+(snowflake](https://github.com/twitter/snowflake)
 
-江南白衣  <http://calvin1978.blogcn.com/articles/uuid.html>
+[江南白衣](http://calvin1978.blogcn.com/articles/uuid.html)
 
-lanindex.com <http://www.lanindex.com/twitter-snowflake%EF%BC%8C64%E4%BD%8D%E8%87%AA%E5%A2%9Eid%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/>
+[lanindex.com](http://www.lanindex.com/twitter-snowflake%EF%BC%8C64%E4%BD%8D%E8%87%AA%E5%A2%9Eid%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3)
