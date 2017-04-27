@@ -214,7 +214,7 @@ client_a通过A获取了worker_id为1的租期，时间是从今天9点到10点�
 
 
 ### 参考文档
-(snowflake](https://github.com/twitter/snowflake)
+[snowflake](https://github.com/twitter/snowflake)
 
 [江南白衣](http://calvin1978.blogcn.com/articles/uuid.html)
 
