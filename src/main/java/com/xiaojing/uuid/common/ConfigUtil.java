@@ -1,9 +1,4 @@
-/*
- * ©2014 北京小桔科技有限公司
- */
-
 package com.xiaojing.uuid.common;
-
 
 import com.xiaojing.uuid.config.ClassPathSearch;
 import com.xiaojing.uuid.config.FilePathSearcher;
@@ -20,11 +15,6 @@ import java.net.URL;
 import java.util.LinkedHashMap;
 import java.util.Properties;
 
-/**
- * @author Christ
- * @ClassName: ConfigUtil
- * @date 2015-2-3 上午11:32:54
- */
 public class ConfigUtil {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(ConfigUtil.class);
