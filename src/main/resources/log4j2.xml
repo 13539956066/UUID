@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Configuration status="debug" shutdownHook="enable">
     <Properties>
-        <Property name="log-path">../logs</Property>
+        <Property name="log-path">./logs</Property>
     </Properties>
     <Appenders>
         <RollingRandomAccessFile name="business-log" fileName="${log-path}/business.log" immediateFlush="true"
