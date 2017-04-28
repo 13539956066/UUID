@@ -1,6 +1,5 @@
 package com.xiaojing.uuid.common;
 
-
 import org.apache.commons.dbcp2.BasicDataSourceFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,9 +20,8 @@ public class DataSourceMap {
   public static final Map<String, DataSource> dataSourceMap = new HashMap<>();
 
   static {
-    dataSourceMap.put("dataSource",getDataSource("db.properties"));
+    dataSourceMap.put("dataSource", getDataSource("db.properties"));
   }
-
 
 
   private static DataSource getDataSource(String fileName) {

@@ -28,9 +28,10 @@ public class UUIDImpl implements UUID.Iface {
   @Inject
   IntervalDao intervalDao;
 
-
   private static final Map<String, Integer> NAME_SPACE_MAP = Maps.<String, Integer>newHashMap();
-  private static final Map<String, Integer> DATA_CENTER_BIT_MAP = Maps.<String, Integer>newHashMap();
+  private static final Map<String, Integer>
+      DATA_CENTER_BIT_MAP =
+      Maps.<String, Integer>newHashMap();
   private static final Map<String, Integer> WORKER_BIT_MAP = Maps.<String, Integer>newHashMap();
   private static final Map<String, Integer> SEQUENCE_BIT_MAP = Maps.<String, Integer>newHashMap();
 
@@ -55,9 +56,10 @@ public class UUIDImpl implements UUID.Iface {
       Connection connection = null;
       try {
         connection = DataSourceMap.getConnection();
-        IntervalVO intervalVO = intervalDao.getAvailableInterval(connection, dataCenterId, WORKER_BIT_MAP.get(nameSpace));
+        IntervalVO intervalVO = intervalDao.getAvailableInterval(
+            connection, dataCenterId, WORKER_BIT_MAP.get(nameSpace));
         intervalVO = intervalDao.rentNewId(connection, intervalVO, duration);
-        Interval interval =  convertToInterval(intervalVO);
+        Interval interval = convertToInterval(intervalVO);
         interval.setDataCenterBits(DATA_CENTER_BIT_MAP.get(nameSpace));
         interval.setWorkerBits(WORKER_BIT_MAP.get(nameSpace));
         interval.setSequenceBits(SEQUENCE_BIT_MAP.get(nameSpace));
@@ -111,7 +113,7 @@ public class UUIDImpl implements UUID.Iface {
     }
   }
 
-  public static Interval convertToInterval(IntervalVO intervalVo,Interval interval) {
+  public static Interval convertToInterval(IntervalVO intervalVo, Interval interval) {
 
     int dataCenterId = intervalVo.getDataCenterId();
     int workerId = intervalVo.getWorkerId();
@@ -122,6 +124,7 @@ public class UUIDImpl implements UUID.Iface {
     int sequenceBits = interval.getSequenceBits();
     return new Interval(dataCenterId, workerId, startTime, endTime, dataCenterBits, workerIdBits, sequenceBits);
   }
+
   public static Interval convertToInterval(IntervalVO intervalVo) {
 
     int dataCenterId = intervalVo.getDataCenterId();

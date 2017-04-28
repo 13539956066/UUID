@@ -20,11 +20,11 @@ public class FilePathSearcher implements PathSearcher {
 
   private static FilePathSearcher INSTANCE = new FilePathSearcher();
 
-  private FilePathSearcher(){
+  private FilePathSearcher() {
 
   }
 
-  public static FilePathSearcher getInstance(){
+  public static FilePathSearcher getInstance() {
     return INSTANCE;
   }
 
@@ -37,13 +37,11 @@ public class FilePathSearcher implements PathSearcher {
 
     if (StringUtils.isNotBlank(configDirs)) {
       directories = configDirs.split(PATH_SEPARATOR);
-    }else if(StringUtils.isNotBlank(configDir)){
+    } else if (StringUtils.isNotBlank(configDir)) {
       directories = configDir.split(PATH_SEPARATOR);//没有配置优先级,则默认在对应的环境对应的文件夹下查找
-    }else {
+    } else {
       return null;
     }
-
-
 
     String urlString = null;
 
@@ -52,15 +50,15 @@ public class FilePathSearcher implements PathSearcher {
       String filePath = directory + File.separator + fileName;
       File file = new File(filePath);
       if (file.isFile()) {
-        urlString =  PROTOCOL+filePath;
+        urlString = PROTOCOL + filePath;
         break;
       }
     }
 
-    if(StringUtils.isNotBlank(urlString)){
-      try{
+    if (StringUtils.isNotBlank(urlString)) {
+      try {
         return new URL(urlString);
-      }catch (MalformedURLException mfe){
+      } catch (MalformedURLException mfe) {
         LOGGER.error("generate url from path string fail,urlString={}", urlString);
       }
     }

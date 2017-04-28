@@ -71,36 +71,6 @@ public class ConfigUtil {
     }
   }
 
-  @Deprecated
-  public static LinkedHashMap<String, Object> loadYamlByConfigFile(final String yamlConfigFile)
-      throws Exception {
-    File file = new File(yamlConfigFile);
-    if (file.isFile()) {
-      FileInputStream fin = null;
-      try {
-        Yaml yaml = new Yaml();
-        fin = new FileInputStream(file);
-        LOGGER.debug("loadYamlByConfigFile read config file from config dir,yamlConfigFile="
-                     + yamlConfigFile);
-        LinkedHashMap<String, Object> configMap = yaml.loadAs(fin, LinkedHashMap.class);
-
-        if (configMap == null || configMap.isEmpty()) {
-          return configMap;
-        }
-
-        return configMap;
-      } catch (Exception e) {
-        LOGGER.warn("loadYamlByConfigFile exception", e);
-      } finally {
-        close(fin);
-      }
-      return null;
-    }
-
-    throw new Exception("file is not exist,yamlConfigFile= " + yamlConfigFile);
-  }
-
-
   public static URL getURLByName(String fileName) throws IOException {
     //首先从配置文件读取
     URL url = FilePathSearcher.getInstance().getURLByName(fileName);
@@ -130,31 +100,6 @@ public class ConfigUtil {
         return properties;
       } catch (IOException ioe) {
         LOGGER.error("load properties from path fail,path={},e=", path, ioe);
-      } finally {
-        close(inputStream);
-      }
-    }
-    LOGGER.error("cannot find path {}", path);
-    throw new IOException("cannot find " + path);
-  }
-
-  public static LinkedHashMap<String, Object> loadYamlByPath(String path) throws IOException {
-    File file = new File(path);
-    if (file.isFile()) {
-      InputStream inputStream = null;
-      try {
-        inputStream = new FileInputStream(file);
-        LinkedHashMap<String, Object>
-            configMap =
-            new Yaml().loadAs(inputStream, LinkedHashMap.class);
-
-        if (configMap == null || configMap.isEmpty()) {
-          return configMap;
-        }
-
-        return configMap;
-      } catch (IOException ioe) {
-        LOGGER.error("load yaml from path fail,path={},e=", path, ioe);
       } finally {
         close(inputStream);
       }

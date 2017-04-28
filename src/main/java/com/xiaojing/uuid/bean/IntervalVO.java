@@ -4,6 +4,7 @@ package com.xiaojing.uuid.bean;
  * Created by xiaojing on 17/4/26.
  */
 public class IntervalVO {
+
   private int dataCenterId;
   private int workerId;
   private long startTime;
@@ -12,7 +13,7 @@ public class IntervalVO {
   public IntervalVO() {
   }
 
-  public IntervalVO(int dataCenterId,int workerId, long startTime, long endTime) {
+  public IntervalVO(int dataCenterId, int workerId, long startTime, long endTime) {
     this.dataCenterId = dataCenterId;
     this.workerId = workerId;
     this.startTime = startTime;
